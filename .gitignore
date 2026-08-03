@@ -1,1 +1,13 @@
+# ESP-IDF Build Directories
+build/
+**/build/
+sdkconfig
+**/sdkconfig
+sdkconfig.old
+**/sdkconfig.old
+sdkconfig.ci
+managed_components/
+
+# Editor & OS files
+.DS_Store
 .obsidian/**
