@@ -49,6 +49,185 @@
      - หากเป็น `WPA2_ENTERPRISE` ต้องเตรียม EAP Username/Password สำหรับส่งไปยัง RADIUS Server
      - หากกำหนด `authmode` ไม่ตรงกับ AP การเชื่อมต่อในเฟสถัดไปจะถูกปฏิเสธและล้มเหลวทันที
 
+```text
+I (31) boot: ESP-IDF v5.2.3 2nd stage bootloader
+I (31) boot: compile time Aug  3 2026 09:34:53
+I (31) boot: Multicore bootloader
+I (35) boot: chip revision: v3.1
+I (39) boot.esp32: SPI Speed      : 40MHz
+I (44) boot.esp32: SPI Mode       : DIO
+I (48) boot.esp32: SPI Flash Size : 2MB
+I (53) boot: Enabling RNG early entropy source...
+I (58) boot: Partition Table:
+I (62) boot: ## Label            Usage          Type ST Offset   Length
+I (69) boot:  0 nvs              WiFi data        01 02 00009000 00006000
+I (77) boot:  1 phy_init         RF data          01 01 0000f000 00001000
+I (84) boot:  2 factory          factory app      00 00 00010000 00100000
+I (92) boot: End of partition table
+I (96) esp_image: segment 0: paddr=00010020 vaddr=3f400020 size=1f984h (129412) map
+I (149) esp_image: segment 1: paddr=0002f9ac vaddr=3ffb0000 size=0066ch (  1644) load
+I (149) esp_image: segment 2: paddr=00030020 vaddr=400d0020 size=823ech (533484) map
+I (337) esp_image: segment 3: paddr=000b2414 vaddr=3ffb066c size=03660h ( 13920) load
+I (343) esp_image: segment 4: paddr=000b5a7c vaddr=40080000 size=16b48h ( 93000) load
+I (391) boot: Loaded app from partition at offset 0x10000
+I (391) boot: Disabling RNG early entropy source...
+I (402) cpu_start: Multicore app
+I (412) cpu_start: Pro cpu start user code
+I (412) cpu_start: cpu freq: 160000000 Hz
+I (412) cpu_start: Application information:
+I (415) cpu_start: Project name:     wifi_scan_phase_lab1
+I (421) cpu_start: App version:      7849937
+I (426) cpu_start: Compile time:     Aug  3 2026 10:59:39
+I (432) cpu_start: ELF file SHA256:  bf5fb626d...
+I (437) cpu_start: ESP-IDF:          v5.2.3
+I (442) cpu_start: Min chip rev:     v0.0
+I (447) cpu_start: Max chip rev:     v3.99 
+I (452) cpu_start: Chip rev:         v3.1
+I (457) heap_init: Initializing. RAM available for dynamic allocation:
+I (464) heap_init: At 3FFAE6E0 len 00001920 (6 KiB): DRAM
+I (470) heap_init: At 3FFB7DA8 len 00028258 (160 KiB): DRAM
+I (476) heap_init: At 3FFE0440 len 00003AE0 (14 KiB): D/IRAM
+I (482) heap_init: At 3FFE4350 len 0001BCB0 (111 KiB): D/IRAM
+I (489) heap_init: At 40096B48 len 000094B8 (37 KiB): IRAM
+I (497) spi_flash: detected chip: generic
+I (500) spi_flash: flash io: dio
+W (504) spi_flash: Detected size(4096k) larger than the size in the binary image header(2048k). Using the size in the binary image header.
+I (518) main_task: Started on CPU0
+I (528) main_task: Calling app_main()
+I (528) LAB_WIFI_SCAN: [FORENSIC]: Call nvs_flash_init()
+I (548) LAB_WIFI_SCAN: [FORENSIC]: nvs_flash_init() returned ESP_OK (0x0)
+I (548) LAB_WIFI_SCAN: [FORENSIC]: Call esp_netif_init()
+I (548) LAB_WIFI_SCAN: [FORENSIC]: esp_netif_init() returned ESP_OK (0x0)
+I (558) LAB_WIFI_SCAN: [FORENSIC]: Call esp_event_loop_create_default()
+I (568) LAB_WIFI_SCAN: [FORENSIC]: esp_event_loop_create_default() returned ESP_OK (0x0)
+I (578) LAB_WIFI_SCAN: [FORENSIC]: Call esp_netif_create_default_wifi_sta()
+I (588) LAB_WIFI_SCAN: [FORENSIC]: esp_netif_create_default_wifi_sta() returned pointer 0x3ffbd7b4
+I (588) LAB_WIFI_SCAN: [FORENSIC]: Call esp_wifi_init(&cfg)
+I (608) wifi:wifi driver task: 3ffbfdb8, prio:23, stack:6656, core=0
+I (618) wifi:wifi firmware version: 82f54d2
+I (618) wifi:wifi certification version: v7.0
+I (618) wifi:config NVS flash: enabled
+I (618) wifi:config nano formating: disabled
+I (628) wifi:Init data frame dynamic rx buffer num: 32
+I (628) wifi:Init static rx mgmt buffer num: 5
+I (628) wifi:Init management short buffer num: 32
+I (638) wifi:Init dynamic tx buffer num: 32
+I (638) wifi:Init static rx buffer size: 1600
+I (648) wifi:Init static rx buffer num: 10
+I (648) wifi:Init dynamic rx buffer num: 32
+I (658) wifi_init: rx ba win: 6
+I (658) wifi_init: tcpip mbox: 32
+I (658) wifi_init: udp mbox: 6
+I (668) wifi_init: tcp mbox: 6
+I (668) wifi_init: tcp tx win: 5760
+I (668) wifi_init: tcp rx win: 5760
+I (678) wifi_init: tcp mss: 1440
+I (678) wifi_init: WiFi IRAM OP enabled
+I (688) wifi_init: WiFi RX IRAM OP enabled
+I (688) LAB_WIFI_SCAN: [FORENSIC]: esp_wifi_init() returned ESP_OK (0x0)
+I (698) LAB_WIFI_SCAN: [FORENSIC]: Call esp_wifi_set_mode(WIFI_MODE_STA)
+I (708) LAB_WIFI_SCAN: [FORENSIC]: esp_wifi_set_mode() returned ESP_OK (0x0)
+I (708) LAB_WIFI_SCAN: [FORENSIC]: Call esp_wifi_start()
+I (718) phy_init: phy_version 4840,a40f0ac,Aug 16 2024,16:48:06
+I (798) wifi:mode : sta (84:1f:e8:20:55:24)
+I (798) wifi:enable tsf
+I (798) LAB_WIFI_SCAN: [FORENSIC]: esp_wifi_start() returned ESP_OK (0x0)
+I (798) LAB_WIFI_SCAN: ==================================================================
+I (808) LAB_WIFI_SCAN:   Lab 5.1: Wi-Fi Connection and Scanning Phase (ESP-IDF Forensic)
+I (818) LAB_WIFI_SCAN: ==================================================================
+I (828) LAB_WIFI_SCAN: ------------------------------------------------------------------
+I (838) LAB_WIFI_SCAN: >>> Experiment 5.1.1: General AP Scan (All Channels)
+I (848) LAB_WIFI_SCAN: ------------------------------------------------------------------
+I (848) LAB_WIFI_SCAN: [FORENSIC]: Call esp_wifi_scan_start(scan_config, block=true)
+I (3368) LAB_WIFI_SCAN: [FORENSIC]: esp_wifi_scan_start() returned ESP_OK (0x0) [Duration: 2502 ms]
+I (3368) LAB_WIFI_SCAN: [FORENSIC]: Call esp_wifi_scan_get_ap_num(&ap_count)
+I (3368) LAB_WIFI_SCAN: [FORENSIC]: esp_wifi_scan_get_ap_num() returned ESP_OK (0x0), ap_count=16
+I (3378) LAB_WIFI_SCAN: [STATUS]: Scan SUCCESS
+I (3388) LAB_WIFI_SCAN: [AP COUNT]: 16 network(s) found
+I (3388) LAB_WIFI_SCAN: [FORENSIC]: Call esp_wifi_scan_get_ap_records(&number, ap_info)
+I (3398) LAB_WIFI_SCAN: [FORENSIC]: esp_wifi_scan_get_ap_records() returned ESP_OK (0x0), records=16
+
+--------------------------------------------------------------------------------------------------
+No.  | SSID                     | MAC Address (BSSID) | RSSI   | Chan | Encryption Type     
+--------------------------------------------------------------------------------------------------
+1    | <Hidden SSID>            | 6A:57:07:6F:73:08 | -34  dBm | 6    | WPA2_PSK            
+2    | eem_Luna                 | 2E:2B:53:FB:4B:AC | -49  dBm | 1    | WPA2_WPA3_PSK       
+3    | KMITL-WIFI               | 78:17:BE:C0:7D:A1 | -50  dBm | 1    | OPEN (No Password)  
+4    | KMITL-Legacy             | 78:17:BE:C0:7D:A0 | -51  dBm | 1    | WPA2_ENTERPRISE     
+5    | KMITL-IoT                | 78:17:BE:C0:7D:A2 | -51  dBm | 1    | WPA2_PSK            
+6    | Pornprom                 | 2E:FE:61:42:3D:24 | -58  dBm | 6    | WPA2_PSK            
+7    | FUB                      | EA:67:85:97:BF:39 | -60  dBm | 10   | WPA2_PSK            
+8    | Test-WiFi                | 0A:8A:B4:BB:12:61 | -61  dBm | 6    | WPA2_WPA3_PSK       
+9    | KMITL-IoT                | 78:17:BE:C0:72:62 | -69  dBm | 11   | WPA2_PSK            
+10   | KMITL-Legacy             | 78:17:BE:C0:72:60 | -70  dBm | 11   | WPA2_ENTERPRISE     
+11   | KMITL-IoT                | 78:17:BE:C0:66:22 | -73  dBm | 1    | WPA2_PSK            
+12   | KMITL-IoT                | 78:17:BE:A9:94:E2 | -73  dBm | 6    | WPA2_PSK            
+13   | KMITL-Legacy             | 78:17:BE:A9:94:E0 | -73  dBm | 6    | WPA2_ENTERPRISE     
+14   | KMITL-Legacy             | 78:17:BE:C0:66:20 | -76  dBm | 1    | WPA2_ENTERPRISE     
+15   | KMITL-WIFI               | 78:17:BE:C0:72:61 | -76  dBm | 11   | OPEN (No Password)  
+16   | KMITL-WIFI               | 78:17:BE:C0:66:21 | -77  dBm | 1    | OPEN (No Password)  
+--------------------------------------------------------------------------------------------------
+
+I (4578) LAB_WIFI_SCAN: ------------------------------------------------------------------
+I (4578) LAB_WIFI_SCAN: >>> Experiment 5.1.2: Channel-Specific Scan (Channel 1)
+I (4578) LAB_WIFI_SCAN: ------------------------------------------------------------------
+I (4588) LAB_WIFI_SCAN: [FORENSIC]: Call esp_wifi_scan_start(scan_config, block=true)
+I (4798) LAB_WIFI_SCAN: [FORENSIC]: esp_wifi_scan_start() returned ESP_OK (0x0) [Duration: 196 ms]
+I (4798) LAB_WIFI_SCAN: [FORENSIC]: Call esp_wifi_scan_get_ap_num(&ap_count)
+I (4798) LAB_WIFI_SCAN: [FORENSIC]: esp_wifi_scan_get_ap_num() returned ESP_OK (0x0), ap_count=8
+I (4808) LAB_WIFI_SCAN: [STATUS]: Scan SUCCESS
+I (4818) LAB_WIFI_SCAN: [AP COUNT]: 8 network(s) found
+I (4818) LAB_WIFI_SCAN: [FORENSIC]: Call esp_wifi_scan_get_ap_records(&number, ap_info)
+I (4828) LAB_WIFI_SCAN: [FORENSIC]: esp_wifi_scan_get_ap_records() returned ESP_OK (0x0), records=8
+
+--------------------------------------------------------------------------------------------------
+No.  | SSID                     | MAC Address (BSSID) | RSSI   | Chan | Encryption Type     
+--------------------------------------------------------------------------------------------------
+1    | KMITL-WIFI               | 78:17:BE:C0:7D:A1 | -51  dBm | 1    | OPEN (No Password)  
+2    | KMITL-IoT                | 78:17:BE:C0:7D:A2 | -51  dBm | 1    | WPA2_PSK            
+3    | KMITL-Legacy             | 78:17:BE:C0:7D:A0 | -52  dBm | 1    | WPA2_ENTERPRISE     
+4    | eem_Luna                 | 2E:2B:53:FB:4B:AC | -62  dBm | 1    | WPA2_WPA3_PSK       
+5    | KMITL-WIFI               | 78:17:BE:C0:66:21 | -77  dBm | 1    | OPEN (No Password)  
+6    | KMITL-Legacy             | 78:17:BE:C0:66:20 | -77  dBm | 1    | WPA2_ENTERPRISE     
+7    | KMITL-IoT                | 78:17:BE:C0:66:22 | -77  dBm | 1    | WPA2_PSK            
+8    | KMITL-WIFI               | CC:BB:FE:D9:2E:E1 | -90  dBm | 1    | OPEN (No Password)  
+--------------------------------------------------------------------------------------------------
+
+I (5938) LAB_WIFI_SCAN: ------------------------------------------------------------------
+I (5938) LAB_WIFI_SCAN: >>> Experiment 5.1.3: Targeted SSID Scan - Existing ("eem_Luna")
+I (5938) LAB_WIFI_SCAN: ------------------------------------------------------------------
+I (5948) LAB_WIFI_SCAN: [FORENSIC]: Call esp_wifi_scan_start(scan_config, block=true)
+I (8458) LAB_WIFI_SCAN: [FORENSIC]: esp_wifi_scan_start() returned ESP_OK (0x0) [Duration: 2495 ms]
+I (8458) LAB_WIFI_SCAN: [FORENSIC]: Call esp_wifi_scan_get_ap_num(&ap_count)
+I (8458) LAB_WIFI_SCAN: [FORENSIC]: esp_wifi_scan_get_ap_num() returned ESP_OK (0x0), ap_count=1
+I (8468) LAB_WIFI_SCAN: [STATUS]: Scan SUCCESS
+I (8478) LAB_WIFI_SCAN: [AP COUNT]: 1 network(s) found
+I (8478) LAB_WIFI_SCAN: [FORENSIC]: Call esp_wifi_scan_get_ap_records(&number, ap_info)
+I (8488) LAB_WIFI_SCAN: [FORENSIC]: esp_wifi_scan_get_ap_records() returned ESP_OK (0x0), records=1
+
+--------------------------------------------------------------------------------------------------
+No.  | SSID                     | MAC Address (BSSID) | RSSI   | Chan | Encryption Type     
+--------------------------------------------------------------------------------------------------
+1    | eem_Luna                 | 2E:2B:53:FB:4B:AC | -51  dBm | 1    | WPA2_WPA3_PSK       
+--------------------------------------------------------------------------------------------------
+
+I (9538) LAB_WIFI_SCAN: ------------------------------------------------------------------
+I (9538) LAB_WIFI_SCAN: >>> Experiment 5.1.4: Targeted SSID Scan - Non-Existent ("NON_EXISTENT_AP_9999")
+I (9538) LAB_WIFI_SCAN: ------------------------------------------------------------------
+I (9548) LAB_WIFI_SCAN: [FORENSIC]: Call esp_wifi_scan_start(scan_config, block=true)
+I (12058) LAB_WIFI_SCAN: [FORENSIC]: esp_wifi_scan_start() returned ESP_OK (0x0) [Duration: 2494 ms]
+I (12058) LAB_WIFI_SCAN: [FORENSIC]: Call esp_wifi_scan_get_ap_num(&ap_count)
+I (12058) LAB_WIFI_SCAN: [FORENSIC]: esp_wifi_scan_get_ap_num() returned ESP_OK (0x0), ap_count=0
+I (12068) LAB_WIFI_SCAN: [STATUS]: Scan SUCCESS
+I (12078) LAB_WIFI_SCAN: [AP COUNT]: 0 network(s) found
+W (12078) LAB_WIFI_SCAN: [NOTE]: No Access Point found matching the criteria.
+I (12088) LAB_WIFI_SCAN: ==================================================================
+I (12098) LAB_WIFI_SCAN:   [Phase 1 Completed: Wi-Fi Scan Finished]
+I (12108) LAB_WIFI_SCAN:   Program stopped after scanning. Auth/Assoc Phase not started.
+I (12118) LAB_WIFI_SCAN: ==================================================================
+I (12118) main_task: Returned from app_main()
+```
+
 ---
 
 # รายงานการทดลอง ใบงานที่ 5.2: การยืนยันตัวตน การสถาปนาการเชื่อมต่อ และการรับหมายเลข IP Address (Wi-Fi Connection & IP Assignment)
@@ -99,6 +278,163 @@
      - หากเกิดจาก `WIFI_REASON_NO_AP_FOUND` (201) หรือ `BEACON_TIMEOUT` (200) อาจเป็นเพราะบอร์ดอยู่นอกระยะสัญญาณ ให้ทำการชะลอเวลา (Exponential Backoff) แล้วลองสแกน/เชื่อมต่อใหม่
      - หากเกิดจาก `WIFI_REASON_HANDSHAKE_TIMEOUT` (15) หรือ `AUTH_FAIL` (202) แสดงว่า Password ผิดพลาด ให้หยุดการพยายามลองเชื่อมต่อซ้ำ และแจ้งเตือนผู้ใช้ให้กำหนดค่า Credentials ใหม่ผ่าน Captive Portal หรือ Bluetooth
      - หากเกิดจาก `WIFI_REASON_ASSOC_FAIL` หรือหลุดชั่วคราว ให้สั่ง `esp_wifi_connect()` ใหม่ได้ทันที
+
+```text
+I (529) LAB_WIFI_CONN: [FORENSIC]: Call nvs_flash_init()
+I (549) LAB_WIFI_CONN: [FORENSIC]: nvs_flash_init() returned ESP_OK (0x0)
+I (549) LAB_WIFI_CONN: [FORENSIC]: Call esp_netif_init()
+I (549) LAB_WIFI_CONN: [FORENSIC]: Call esp_event_loop_create_default()
+I (559) LAB_WIFI_CONN: [FORENSIC]: Call esp_netif_create_default_wifi_sta()
+I (569) LAB_WIFI_CONN: [FORENSIC]: esp_netif_create_default_wifi_sta() returned 0x3ffbd754
+I (579) LAB_WIFI_CONN: [FORENSIC]: Call esp_wifi_init(&cfg)
+I (589) wifi:wifi driver task: 3ffbfd58, prio:23, stack:6656, core=0
+I (599) wifi:wifi firmware version: 82f54d2
+I (599) wifi:wifi certification version: v7.0
+I (599) wifi:config NVS flash: enabled
+I (599) wifi:config nano formating: disabled
+I (609) wifi:Init data frame dynamic rx buffer num: 32
+I (609) wifi:Init static rx mgmt buffer num: 5
+I (619) wifi:Init management short buffer num: 32
+I (619) wifi:Init dynamic tx buffer num: 32
+I (619) wifi:Init static rx buffer size: 1600
+I (629) wifi:Init static rx buffer num: 10
+I (629) wifi:Init dynamic rx buffer num: 32
+I (639) wifi_init: rx ba win: 6
+I (639) wifi_init: tcpip mbox: 32
+I (639) wifi_init: udp mbox: 6
+I (649) wifi_init: tcp mbox: 6
+I (649) wifi_init: tcp tx win: 5760
+I (659) wifi_init: tcp rx win: 5760
+I (659) wifi_init: tcp mss: 1440
+I (659) wifi_init: WiFi IRAM OP enabled
+I (669) wifi_init: WiFi RX IRAM OP enabled
+I (669) LAB_WIFI_CONN: [FORENSIC]: Call esp_event_handler_instance_register(WIFI_EVENT)
+I (679) LAB_WIFI_CONN: [FORENSIC]: Call esp_event_handler_instance_register(IP_EVENT)
+I (689) LAB_WIFI_CONN: [FORENSIC]: Call esp_wifi_set_mode(WIFI_MODE_STA)
+I (699) LAB_WIFI_CONN: ==================================================================
+I (709) LAB_WIFI_CONN:   Lab 5.2: Wi-Fi Connection & IP Assignment (ESP-IDF Forensic)
+I (709) LAB_WIFI_CONN: ==================================================================
+I (719) LAB_WIFI_CONN:
+
+I (729) LAB_WIFI_CONN: ------------------------------------------------------------------
+I (739) LAB_WIFI_CONN: >>> Experiment 5.2.1: Connection Test - Correct Credentials
+I (739) LAB_WIFI_CONN: ------------------------------------------------------------------
+I (749) LAB_WIFI_CONN:   Target SSID: "PhuwishP"
+I (759) LAB_WIFI_CONN:   Target Password: "123456789"
+I (759) LAB_WIFI_CONN: [FORENSIC]: Call esp_wifi_stop()
+I (769) LAB_WIFI_CONN: [FORENSIC]: Call esp_wifi_set_config(WIFI_IF_STA, &wifi_config)
+I (819) LAB_WIFI_CONN: [FORENSIC]: esp_wifi_set_config() returned ESP_OK (0x0)
+I (819) LAB_WIFI_CONN: [FORENSIC]: Call esp_wifi_start()
+I (829) phy_init: phy_version 4840,a40f0ac,Aug 16 2024,16:48:06
+I (909) wifi:mode : sta (84:1f:e8:20:55:24)
+I (909) wifi:enable tsf
+I (909) LAB_WIFI_CONN: [EVENT FORENSIC]: WIFI_EVENT ID 43 received
+I (909) LAB_WIFI_CONN: [FORENSIC]: esp_wifi_start() returned ESP_OK (0x0)
+I (909) LAB_WIFI_CONN: [EVENT FORENSIC]: WIFI_EVENT_STA_START received
+I (919) LAB_WIFI_CONN: [FORENSIC]: Initiating Wi-Fi Connection...
+I (929) LAB_WIFI_CONN: [FORENSIC]: Call esp_wifi_connect()
+I (939) LAB_WIFI_CONN: [FORENSIC]: esp_wifi_connect() returned ESP_OK (0x0)
+I (939) wifi:new:<6,0>, old:<1,0>, ap:<255,255>, sta:<6,0>, prof:1
+I (939) wifi:state: init -> auth (b0)
+I (949) LAB_WIFI_CONN: [EVENT FORENSIC]: WIFI_EVENT ID 43 received
+I (959) wifi:state: auth -> assoc (0)
+I (969) wifi:state: assoc -> run (10)
+I (1099) wifi:connected with PhuwishP, aid = 2, channel 6, BW20, bssid = 6a:57:07:6f:73:08
+I (1099) wifi:security: WPA2-PSK, phy: bgn, rssi: -38
+I (1119) wifi:pm start, type: 1
+
+I (1119) wifi:dp: 1, bi: 102400, li: 3, scale listen interval from 307200 us to 307200 us
+I (1129) LAB_WIFI_CONN: =======================================================
+I (1129) LAB_WIFI_CONN: [EVENT FORENSIC]: WIFI_EVENT_STA_CONNECTED received!
+I (1139) LAB_WIFI_CONN:   [SUCCESS]: Connected to AP Link Layer! (AID: 2)
+I (1149) LAB_WIFI_CONN:   -> Connected SSID      : PhuwishP
+I (1159) LAB_WIFI_CONN:   -> BSSID (MAC Address) : 6A:57:07:6F:73:08
+I (1159) LAB_WIFI_CONN:   -> Channel             : 6
+I (1169) LAB_WIFI_CONN:   -> Association ID      : 2
+I (1179) LAB_WIFI_CONN: =======================================================
+I (1179) LAB_WIFI_CONN: [FORENSIC]: Waiting for IP_EVENT_STA_GOT_IP...
+I (1189) wifi:AP's beacon interval = 102400 us, DTIM period = 1
+I (2129) esp_netif_handlers: sta ip: 172.20.10.2, mask: 255.255.255.240, gw: 172.20.10.1
+I (2129) LAB_WIFI_CONN: =======================================================
+I (2129) LAB_WIFI_CONN: [EVENT FORENSIC]: IP_EVENT_STA_GOT_IP received!
+I (2139) LAB_WIFI_CONN:   [SUCCESS]: IP Address Assigned via DHCP!
+I (2149) LAB_WIFI_CONN:   -> IP Address     : 172.20.10.2
+I (2159) LAB_WIFI_CONN:   -> Subnet Mask    : 255.255.255.240
+I (2159) LAB_WIFI_CONN:   -> Default Gateway: 172.20.10.1
+I (2169) LAB_WIFI_CONN: =======================================================
+I (2179) LAB_WIFI_CONN: [RESULT]: TEST PASSED - Successfully connected and got IP!
+I (4189) LAB_WIFI_CONN:
+I (4189) LAB_WIFI_CONN: ------------------------------------------------------------------
+I (4189) LAB_WIFI_CONN: >>> Experiment 5.2.2: Connection Test - Non-Existent SSID
+I (4189) LAB_WIFI_CONN: ------------------------------------------------------------------
+I (4199) LAB_WIFI_CONN:   Target SSID: "NON_EXISTENT_AP_9999"
+I (4209) LAB_WIFI_CONN:   Target Password: "12345678"
+I (4219) LAB_WIFI_CONN: [FORENSIC]: Call esp_wifi_stop()
+I (4219) wifi:state: run -> init (0)
+I (4239) wifi:pm stop, total sleep time: 1577903 us / 2217835 us
+
+I (4239) wifi:new:<6,0>, old:<6,0>, ap:<255,255>, sta:<6,0>, prof:1
+E (4239) wifi:NAN WiFi stop
+W (4239) LAB_WIFI_CONN: =======================================================
+W (4249) LAB_WIFI_CONN: [EVENT FORENSIC]: WIFI_EVENT_STA_DISCONNECTED received!
+W (4259) LAB_WIFI_CONN:   -> Target SSID          : PhuwishP
+W (4259) LAB_WIFI_CONN:   -> Reason Code (Decimal): 8
+W (4269) LAB_WIFI_CONN:   -> Reason Code (Hex)    : 0x08
+W (4279) LAB_WIFI_CONN:   -> Reason Description   : OTHER_DISCONNECT_REASON
+W (4279) LAB_WIFI_CONN: =======================================================
+I (4289) LAB_WIFI_CONN: [EVENT FORENSIC]: WIFI_EVENT ID 3 received
+I (4299) wifi:flush txq
+I (4299) wifi:stop sw txq
+I (4299) wifi:lmac stop hw txq
+I (4309) LAB_WIFI_CONN: [FORENSIC]: Call esp_wifi_set_config(WIFI_IF_STA, &wifi_config)
+I (4339) LAB_WIFI_CONN: [FORENSIC]: esp_wifi_set_config() returned ESP_OK (0x0)
+I (4339) LAB_WIFI_CONN: [FORENSIC]: Call esp_wifi_start()
+I (4349) wifi:mode : sta (84:1f:e8:20:55:24)
+I (4349) wifi:enable tsf
+I (4359) LAB_WIFI_CONN: [EVENT FORENSIC]: WIFI_EVENT ID 43 received
+I (4359) LAB_WIFI_CONN: [FORENSIC]: esp_wifi_start() returned ESP_OK (0x0)
+I (4359) LAB_WIFI_CONN: [EVENT FORENSIC]: WIFI_EVENT_STA_START received
+I (4369) LAB_WIFI_CONN: [FORENSIC]: Initiating Wi-Fi Connection...
+I (4379) LAB_WIFI_CONN: [FORENSIC]: Call esp_wifi_connect()
+I (4389) LAB_WIFI_CONN: [FORENSIC]: esp_wifi_connect() returned ESP_OK (0x0)
+W (4399) LAB_WIFI_CONN: [RESULT]: TEST FAILED - Disconnected event captured.
+I (4409) LAB_WIFI_CONN:
+I (4409) LAB_WIFI_CONN: ------------------------------------------------------------------
+I (4409) LAB_WIFI_CONN: >>> Experiment 5.2.3: Connection Test - Incorrect Password
+I (4409) LAB_WIFI_CONN: ------------------------------------------------------------------
+I (4419) LAB_WIFI_CONN:   Target SSID: "PhuwishP"
+I (4429) LAB_WIFI_CONN:   Target Password: "WRONG_PASSWORD_1234"
+I (4439) LAB_WIFI_CONN: [FORENSIC]: Call esp_wifi_stop()
+I (4449) LAB_WIFI_CONN: [FORENSIC]: Call esp_wifi_set_config(WIFI_IF_STA, &wifi_config)
+I (4479) LAB_WIFI_CONN: [FORENSIC]: esp_wifi_set_config() returned ESP_OK (0x0)
+I (4479) LAB_WIFI_CONN: [FORENSIC]: Call esp_wifi_start()
+I (4489) LAB_WIFI_CONN: [EVENT FORENSIC]: WIFI_EVENT ID 43 received
+I (4489) LAB_WIFI_CONN: [FORENSIC]: esp_wifi_start() returned ESP_OK (0x0)
+I (4489) LAB_WIFI_CONN: [EVENT FORENSIC]: WIFI_EVENT_STA_START received
+I (4499) LAB_WIFI_CONN: [FORENSIC]: Initiating Wi-Fi Connection...
+I (4509) LAB_WIFI_CONN: [FORENSIC]: Call esp_wifi_connect()
+I (4519) LAB_WIFI_CONN: [FORENSIC]: esp_wifi_connect() returned ESP_OK (0x0)
+W (6819) LAB_WIFI_CONN: =======================================================
+W (6819) LAB_WIFI_CONN: [EVENT FORENSIC]: WIFI_EVENT_STA_DISCONNECTED received!
+W (6829) LAB_WIFI_CONN:   -> Target SSID          : NON_EXISTENT_AP_9999
+W (6839) LAB_WIFI_CONN:   -> Reason Code (Decimal): 201
+W (6839) LAB_WIFI_CONN:   -> Reason Code (Hex)    : 0xC9
+W (6849) LAB_WIFI_CONN:   -> Reason Description   : WIFI_REASON_NO_AP_FOUND (201) [SSID not found during scan]
+W (6859) LAB_WIFI_CONN: =======================================================
+I (7639) wifi:new:<6,0>, old:<6,0>, ap:<255,255>, sta:<6,0>, prof:1
+W (7639) LAB_WIFI_CONN: =======================================================
+W (7639) LAB_WIFI_CONN: [EVENT FORENSIC]: WIFI_EVENT_STA_DISCONNECTED received!
+W (7649) LAB_WIFI_CONN:   -> Target SSID          : PhuwishP
+W (7649) LAB_WIFI_CONN:   -> Reason Code (Decimal): 2
+W (7659) LAB_WIFI_CONN:   -> Reason Code (Hex)    : 0x02
+W (7669) LAB_WIFI_CONN:   -> Reason Description   : WIFI_REASON_AUTH_EXPIRE (2)
+W (7669) LAB_WIFI_CONN: =======================================================
+W (7679) LAB_WIFI_CONN: [RESULT]: TEST FAILED - Disconnected event captured.
+I (7689) LAB_WIFI_CONN: ==================================================================
+I (7699) LAB_WIFI_CONN:   [Phase 2/3/4/5 Completed: Wi-Fi Connection Lab Finished]
+I (7709) LAB_WIFI_CONN: ==================================================================
+I (7719) main_task: Returned from app_main()
+```
 
 ---
 
@@ -155,6 +491,156 @@
        - บอร์ด ESP32 ผ่านกระบวนการแลกเปลี่ยนคีย์ความปลอดภัย WPA2 (Phase 4) และขอรับหมายเลข IP Address, Subnet Mask, Gateway จาก DHCP Server บน AP เรียบร้อยแล้ว
        - **พร้อมสำหรับการรับส่งข้อมูลบนเครือข่ายอินเทอร์เน็ต (Sockets, HTTP, MQTT ฯลฯ)**
 
+```text
+I (392) boot: Loaded app from partition at offset 0x10000
+I (392) boot: Disabling RNG early entropy source...
+I (403) cpu_start: Multicore app
+I (413) cpu_start: Pro cpu start user code
+I (413) cpu_start: cpu freq: 160000000 Hz
+I (413) cpu_start: Application information:
+I (416) cpu_start: Project name:     wifi_auth_assoc_lab3
+I (422) cpu_start: App version:      a12ebc6-dirty
+I (427) cpu_start: Compile time:     Aug  3 2026 10:12:10
+I (434) cpu_start: ELF file SHA256:  1bd51fbd7...
+I (439) cpu_start: ESP-IDF:          v5.2.3
+I (444) cpu_start: Min chip rev:     v0.0
+I (448) cpu_start: Max chip rev:     v3.99
+I (453) cpu_start: Chip rev:         v3.1
+I (458) heap_init: Initializing. RAM available for dynamic allocation:
+I (465) heap_init: At 3FFAE6E0 len 00001920 (6 KiB): DRAM
+I (471) heap_init: At 3FFB7DB0 len 00028250 (160 KiB): DRAM
+I (478) heap_init: At 3FFE0440 len 00003AE0 (14 KiB): D/IRAM
+I (484) heap_init: At 40096B48 len 0001BCB0 (111 KiB): D/IRAM
+I (490) heap_init: At 40096B48 len 000094B8 (37 KiB): IRAM
+I (498) spi_flash: detected chip: generic
+I (501) spi_flash: flash io: dio
+W (505) spi_flash: Detected size(4096k) larger than the size in the binary image header(2048k). Using the size in the binary image header.
+I (519) main_task: Started on CPU0
+I (529) main_task: Calling app_main()
+I (529) LAB_AUTH_ASSOC: [FORENSIC]: Call nvs_flash_init()
+I (549) LAB_AUTH_ASSOC: [FORENSIC]: nvs_flash_init() returned ESP_OK (0x0)
+I (549) LAB_AUTH_ASSOC: [FORENSIC]: Call esp_netif_init()
+I (549) LAB_AUTH_ASSOC: [FORENSIC]: Call esp_event_loop_create_default()
+I (559) LAB_AUTH_ASSOC: [FORENSIC]: Call esp_netif_create_default_wifi_sta()
+I (569) LAB_AUTH_ASSOC: [FORENSIC]: esp_netif_create_default_wifi_sta() returned 0x3ffbd7d8
+I (579) LAB_AUTH_ASSOC: [FORENSIC]: Call esp_wifi_init(&cfg)
+I (589) wifi:wifi driver task: 3ffbfddc, prio:23, stack:6656, core=0
+I (599) wifi:wifi firmware version: 82f54d2
+I (599) wifi:wifi certification version: v7.0
+I (599) wifi:config NVS flash: enabled
+I (599) wifi:config nano formating: disabled
+I (609) wifi:Init data frame dynamic rx buffer num: 32
+I (609) wifi:Init static rx mgmt buffer num: 5
+I (619) wifi:Init management short buffer num: 32
+I (619) wifi:Init dynamic tx buffer num: 32
+I (629) wifi:Init static rx buffer size: 1600
+I (629) wifi:Init static rx buffer num: 10
+I (629) wifi:Init dynamic rx buffer num: 32
+I (639) wifi_init: rx ba win: 6
+I (639) wifi_init: tcpip mbox: 32
+I (649) wifi_init: udp mbox: 6
+I (649) wifi_init: tcp mbox: 6
+I (659) wifi_init: tcp tx win: 5760
+I (659) wifi_init: tcp rx win: 5760
+I (669) wifi_init: tcp mss: 1440
+I (669) wifi_init: WiFi IRAM OP enabled
+I (669) wifi_init: WiFi RX IRAM OP enabled
+I (669) LAB_AUTH_ASSOC: [FORENSIC]: Call esp_event_handler_instance_register(WIFI_EVENT)
+I (679) LAB_AUTH_ASSOC: [FORENSIC]: Call esp_wifi_set_mode(WIFI_MODE_STA)
+I (689) LAB_AUTH_ASSOC: ==================================================================
+I (699) LAB_AUTH_ASSOC:   Lab 5.3: Wi-Fi Authentication & Association Phase (ESP-IDF Forensic)
+I (709) LAB_AUTH_ASSOC: ==================================================================
+I (719) LAB_AUTH_ASSOC:
+
+I (719) LAB_AUTH_ASSOC: ------------------------------------------------------------------
+I (729) LAB_AUTH_ASSOC: >>> Experiment 5.3.1: Link-Layer Auth & Assoc Phase Test
+I (739) LAB_AUTH_ASSOC: ------------------------------------------------------------------
+I (749) LAB_AUTH_ASSOC:   Target SSID    : "PhuwishP"
+I (759) LAB_AUTH_ASSOC:   Target Password: "123456789"
+I (759) LAB_AUTH_ASSOC: [FORENSIC]: Call esp_wifi_stop()
+I (769) LAB_AUTH_ASSOC: [FORENSIC]: Call esp_wifi_set_config(WIFI_IF_STA, &wifi_config)
+W (779) wifi:Password length matches WPA2 standards, authmode threshold changes from OPEN to WPA2
+I (819) LAB_AUTH_ASSOC: [FORENSIC]: esp_wifi_set_config() returned ESP_OK (0x0)
+I (819) LAB_AUTH_ASSOC: [FORENSIC]: Call esp_wifi_start()
+I (819) phy_init: phy_version 4840,a40f0ac,Aug 16 2024,16:48:06
+I (909) wifi:mode : sta (84:1f:e8:20:55:24)
+I (909) wifi:enable tsf
+I (909) LAB_AUTH_ASSOC: [EVENT FORENSIC]: WIFI_EVENT ID 43 received
+I (909) LAB_AUTH_ASSOC: [FORENSIC]: esp_wifi_start() returned ESP_OK (0x0)
+I (909) LAB_AUTH_ASSOC: [EVENT FORENSIC]: WIFI_EVENT_STA_START received
+I (919) LAB_AUTH_ASSOC: [FORENSIC]: Initiating 802.11 Link-Layer Connection (Auth & Assoc)...
+I (929) LAB_AUTH_ASSOC: [FORENSIC]: Call esp_wifi_connect()
+I (939) LAB_AUTH_ASSOC: [FORENSIC]: esp_wifi_connect() returned ESP_OK (0x0)
+I (1069) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1
+I (1069) wifi:state: init -> auth (b0)
+I (1089) wifi:state: auth -> assoc (0)
+I (1099) wifi:state: assoc -> run (10)
+I (1219) wifi:connected with PhuwishP, aid = 2, channel 1, BW20, bssid = 82:ca:f7:29:29:6c
+I (1219) wifi:security: WPA2-PSK, phy: bgn, rssi: -37
+I (1239) wifi:pm start, type: 1
+
+I (1239) wifi:dp: 1, bi: 102400, li: 3, scale listen interval from 307200 us to 307200 us
+I (1239) LAB_AUTH_ASSOC: =======================================================
+I (1239) LAB_AUTH_ASSOC: [EVENT FORENSIC]: WIFI_EVENT_STA_CONNECTED received!
+I (1249) LAB_AUTH_ASSOC:   [SUCCESS]: Phase 2 (Auth) & Phase 3 (Assoc) COMPLETED!
+I (1259) LAB_AUTH_ASSOC:   -> Connected SSID        : PhuwishP
+I (1269) LAB_AUTH_ASSOC:   -> BSSID (MAC Address)   : 82:CA:F7:29:29:6C
+I (1269) LAB_AUTH_ASSOC:   -> Channel               : 1
+I (1279) LAB_AUTH_ASSOC:   -> Auth Mode             : 3
+I (1279) LAB_AUTH_ASSOC:   -> Association ID (AID)  : 3
+I (1289) LAB_AUTH_ASSOC: =======================================================
+I (1299) LAB_AUTH_ASSOC: [RESULT]: TEST PASSED - Phase 2 (Auth) & Phase 3 (Assoc) Successful!
+I (1319) wifi:AP's beacon interval = 102400 us, DTIM period = 1
+I (2239) esp_netif_handlers: sta ip: 172.20.10.2, mask: 255.255.255.240, gw: 172.20.10.1
+I (3309) LAB_AUTH_ASSOC:
+
+I (3309) LAB_AUTH_ASSOC: ------------------------------------------------------------------
+I (3309) LAB_AUTH_ASSOC: >>> Experiment 5.3.2: Link-Layer Test - Non-Existent AP
+I (3309) LAB_AUTH_ASSOC: ------------------------------------------------------------------
+I (3319) LAB_AUTH_ASSOC:   Target SSID    : "NON_EXISTENT_AP_9999"
+I (3329) LAB_AUTH_ASSOC:   Target Password: "12345678"
+I (3339) LAB_AUTH_ASSOC: [FORENSIC]: Call esp_wifi_stop()
+I (3339) wifi:state: run -> init (0)
+I (3359) wifi:pm stop, total sleep time: 1508952 us / 2121221 us
+
+I (3359) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1
+E (3359) wifi:NAN WiFi stop
+W (3359) LAB_AUTH_ASSOC: =======================================================
+W (3369) LAB_AUTH_ASSOC: [EVENT FORENSIC]: WIFI_EVENT_STA_DISCONNECTED received!
+W (3379) LAB_AUTH_ASSOC:   -> Target SSID          : PhuwishP
+W (3379) LAB_AUTH_ASSOC:   -> Reason Code (Decimal): 8
+W (3389) LAB_AUTH_ASSOC:   -> Reason Code (Hex)    : 0x08
+W (3389) LAB_AUTH_ASSOC:   -> Reason Diagnosis     : OTHER_DISCONNECT_REASON
+W (3399) LAB_AUTH_ASSOC: =======================================================
+I (3409) LAB_AUTH_ASSOC: [EVENT FORENSIC]: WIFI_EVENT ID 3 received
+I (3419) wifi:flush txq
+I (3419) wifi:stop sw txq
+I (3419) wifi:lmac stop hw txq
+I (3429) LAB_AUTH_ASSOC: [FORENSIC]: Call esp_wifi_set_config(WIFI_IF_STA, &wifi_config)
+W (3429) wifi:Password length matches WPA2 standards, authmode threshold changes from OPEN to WPA2
+I (3489) LAB_AUTH_ASSOC: [FORENSIC]: esp_wifi_set_config() returned ESP_OK (0x0)
+I (3489) LAB_AUTH_ASSOC: [FORENSIC]: Call esp_wifi_start()
+I (3489) wifi:mode : sta (84:1f:e8:20:55:24)
+I (3489) wifi:enable tsf
+I (3499) LAB_AUTH_ASSOC: [FORENSIC]: esp_wifi_start() returned ESP_OK (0x0)
+I (3499) LAB_AUTH_ASSOC: [EVENT FORENSIC]: WIFI_EVENT_STA_START received
+I (3509) LAB_AUTH_ASSOC: [FORENSIC]: Initiating 802.11 Link-Layer Connection (Auth & Assoc)...
+I (3519) LAB_AUTH_ASSOC: [FORENSIC]: Call esp_wifi_connect()
+I (3529) LAB_AUTH_ASSOC: [FORENSIC]: esp_wifi_connect() returned ESP_OK (0x0)
+W (3529) LAB_AUTH_ASSOC: [RESULT]: TEST FAILED - Disconnected event captured in Link-Layer.
+I (3539) LAB_AUTH_ASSOC: ==================================================================
+I (3549) LAB_AUTH_ASSOC:   [Phase 2 & Phase 3 Completed: Link-Layer Auth & Assoc Finished]
+I (3559) LAB_AUTH_ASSOC: ==================================================================
+I (3569) main_task: Returned from app_main()
+W (5939) LAB_AUTH_ASSOC: =======================================================
+W (5939) LAB_AUTH_ASSOC: [EVENT FORENSIC]: WIFI_EVENT_STA_DISCONNECTED received!
+W (5949) LAB_AUTH_ASSOC:   -> Target SSID          : NON_EXISTENT_AP_9999
+W (5949) LAB_AUTH_ASSOC:   -> Reason Code (Decimal): 201
+W (5959) LAB_AUTH_ASSOC:   -> Reason Code (Hex)    : 0xC9
+W (5969) LAB_AUTH_ASSOC:   -> Reason Diagnosis     : WIFI_REASON_NO_AP_FOUND (201) [Phase 1: SSID Not Found]
+W (5979) LAB_AUTH_ASSOC: =======================================================
+```
+
 ---
 
 # รายงานการทดลอง ใบงานที่ 5.4: กระบวนการแลกเปลี่ยนคีย์ความปลอดภัยและการจัดสรรหมายเลข IP Address (4-Way Handshake & IP Assignment Phase)
@@ -201,3 +687,166 @@
    - **คำตอบ:**
      - **ขั้นตอนที่หยุด:** การทดลองจะหยุดอยู่ที่ **สิ้นสุด Phase 4 (4-Way Handshake)** และค้างอยู่ในสถานะรอคอยการตอบกลับจาก DHCP Server ใน **Phase 5 (DHCP Request)**
      - **Event ที่จะไม่เกิดขึ้น:** จะ**ไม่เกิด Event `IP_EVENT_STA_GOT_IP`** เนื่องจาก ESP32 ไม่ได้รับข้อเสนอ (DHCP Offer/ACK) หมายเลข IP Address, Subnet Mask และ Gateway จาก DHCP Server ทำให้ฝั่ง Network Layer (Layer 3) ไม่สมบูรณ์และไม่สามารถสื่อสารผ่านโปรโตคอล TCP/IP ได้
+
+```text
+I (392) boot: Loaded app from partition at offset 0x10000
+I (392) boot: Disabling RNG early entropy source...
+I (403) cpu_start: Multicore app
+I (413) cpu_start: Pro cpu start user code
+I (413) cpu_start: cpu freq: 160000000 Hz
+I (413) cpu_start: Application information:
+I (416) cpu_start: Project name:     wifi_handshake_ip_lab4
+I (422) cpu_start: App version:      a12ebc6-dirty
+I (428) cpu_start: Compile time:     Aug  3 2026 10:41:50
+I (434) cpu_start: ELF file SHA256:  bd5c18467...
+I (439) cpu_start: ESP-IDF:          v5.2.3
+I (444) cpu_start: Min chip rev:     v0.0
+I (449) cpu_start: Max chip rev:     v3.99
+I (454) cpu_start: Chip rev:         v3.1
+I (459) heap_init: Initializing. RAM available for dynamic allocation:
+I (466) heap_init: At 3FFAE6E0 len 00001920 (6 KiB): DRAM
+I (472) heap_init: At 3FFB7DB0 len 00028250 (160 KiB): DRAM
+I (478) heap_init: At 3FFE0440 len 00003AE0 (14 KiB): D/IRAM
+I (484) heap_init: At 3FFE4350 len 0001BCB0 (111 KiB): D/IRAM
+I (491) heap_init: At 40096B48 len 000094B8 (37 KiB): IRAM
+I (498) spi_flash: detected chip: generic
+I (502) spi_flash: flash io: dio
+W (505) spi_flash: Detected size(4096k) larger than the size in the binary image header(2048k). Using the size in the binary image header.
+I (520) main_task: Started on CPU0
+I (530) main_task: Calling app_main()
+I (530) LAB_HANDSHAKE_IP: [FORENSIC]: Call nvs_flash_init()
+I (550) LAB_HANDSHAKE_IP: [FORENSIC]: nvs_flash_init() returned ESP_OK (0x0)
+I (550) LAB_HANDSHAKE_IP: [FORENSIC]: Call esp_netif_init()
+I (560) LAB_HANDSHAKE_IP: [FORENSIC]: Call esp_event_loop_create_default()
+I (560) LAB_HANDSHAKE_IP: [FORENSIC]: Call esp_netif_create_default_wifi_sta()
+I (570) LAB_HANDSHAKE_IP: [FORENSIC]: esp_netif_create_default_wifi_sta() returned 0x3ffbd7d8
+I (580) LAB_HANDSHAKE_IP: [FORENSIC]: Call esp_wifi_init(&cfg)
+I (600) wifi:wifi driver task: 3ffbfddc, prio:23, stack:6656, core=0
+I (610) wifi:wifi firmware version: 82f54d2
+I (610) wifi:wifi certification version: v7.0
+I (610) wifi:config NVS flash: enabled
+I (610) wifi:config nano formating: disabled
+I (610) wifi:Init data frame dynamic rx buffer num: 32
+I (620) wifi:Init static rx mgmt buffer num: 5
+I (620) wifi:Init management short buffer num: 32
+I (630) wifi:Init dynamic tx buffer num: 32
+I (630) wifi:Init static rx buffer size: 1600
+I (640) wifi:Init static rx buffer num: 10
+I (640) wifi:Init dynamic rx buffer num: 32
+I (640) wifi_init: rx ba win: 6
+I (650) wifi_init: tcpip mbox: 32
+I (650) wifi_init: udp mbox: 6
+I (660) wifi_init: tcp mbox: 6
+I (660) wifi_init: tcp tx win: 5760
+I (660) wifi_init: tcp rx win: 5760
+I (670) wifi_init: tcp mss: 1440
+I (670) wifi_init: WiFi IRAM OP enabled
+I (680) wifi_init: WiFi RX IRAM OP enabled
+I (680) LAB_HANDSHAKE_IP: [FORENSIC]: Call esp_event_handler_instance_register(WIFI_EVENT)
+I (690) LAB_HANDSHAKE_IP: [FORENSIC]: Call esp_event_handler_instance_register(IP_EVENT)
+I (700) LAB_HANDSHAKE_IP: [FORENSIC]: Call esp_wifi_set_mode(WIFI_MODE_STA)
+I (710) LAB_HANDSHAKE_IP: ==================================================================
+I (710) LAB_HANDSHAKE_IP:   Lab 5.4: 4-Way Handshake & IP Assignment Phase (ESP-IDF Forensic)
+I (720) LAB_HANDSHAKE_IP: ==================================================================
+I (730) LAB_HANDSHAKE_IP:
+
+I (740) LAB_HANDSHAKE_IP: ------------------------------------------------------------------
+I (750) LAB_HANDSHAKE_IP: >>> Experiment 5.4.1: Handshake & IP Test - Correct Password
+I (750) LAB_HANDSHAKE_IP: ------------------------------------------------------------------
+I (760) LAB_HANDSHAKE_IP:   Target SSID    : "PhuwishP"
+I (770) LAB_HANDSHAKE_IP:   Target Password: "123456789"
+I (780) LAB_HANDSHAKE_IP: [FORENSIC]: Call esp_wifi_stop()
+I (780) LAB_HANDSHAKE_IP: [FORENSIC]: Call esp_wifi_set_config(WIFI_IF_STA, &wifi_config)
+I (810) LAB_HANDSHAKE_IP: [FORENSIC]: esp_wifi_set_config() returned ESP_OK (0x0)
+I (810) LAB_HANDSHAKE_IP: [FORENSIC]: Call esp_wifi_start()
+I (820) phy_init: phy_version 4840,a40f0ac,Aug 16 2024,16:48:06
+I (900) wifi:mode : sta (84:1f:e8:20:55:24)
+I (900) wifi:enable tsf
+I (900) LAB_HANDSHAKE_IP: [EVENT FORENSIC]: WIFI_EVENT ID 43 received
+I (900) LAB_HANDSHAKE_IP: [FORENSIC]: esp_wifi_start() returned ESP_OK (0x0)
+I (900) LAB_HANDSHAKE_IP: [EVENT FORENSIC]: WIFI_EVENT_STA_START received
+I (910) LAB_HANDSHAKE_IP: [FORENSIC]: Call esp_wifi_connect()
+I (920) LAB_HANDSHAKE_IP: [FORENSIC]: esp_wifi_connect() returned ESP_OK (0x0)
+I (1540) wifi:new:<6,0>, old:<1,0>, ap:<255,255>, sta:<6,0>, prof:1
+I (1540) wifi:state: init -> auth (b0)
+I (1540) LAB_HANDSHAKE_IP: [EVENT FORENSIC]: WIFI_EVENT ID 43 received
+I (1550) wifi:state: auth -> assoc (0)
+I (1560) wifi:state: assoc -> run (10)
+I (1700) wifi:connected with PhuwishP, aid = 2, channel 6, BW20, bssid = 6a:57:07:6f:73:08
+I (1700) wifi:security: WPA2-PSK, phy: bgn, rssi: -42
+I (1720) wifi:pm start, type: 1
+
+I (1720) wifi:dp: 1, bi: 102400, li: 3, scale listen interval from 307200 us to 307200 us
+I (1730) LAB_HANDSHAKE_IP: =======================================================
+I (1730) LAB_HANDSHAKE_IP: [EVENT FORENSIC]: WIFI_EVENT_STA_CONNECTED received!
+I (1740) LAB_HANDSHAKE_IP:   -> Phase 2 (Auth) & Phase 3 (Assoc) PASSED
+I (1750) LAB_HANDSHAKE_IP:   -> Connected SSID  : PhuwishP
+I (1750) LAB_HANDSHAKE_IP:   -> BSSID           : 6A:57:07:6F:73:08
+I (1760) LAB_HANDSHAKE_IP:   -> Channel         : 6
+I (1770) LAB_HANDSHAKE_IP:   -> Association ID  : 3
+I (1770) LAB_HANDSHAKE_IP: [FORENSIC]: Entering Phase 4: 4-Way EAPOL Key Exchange...
+I (1780) LAB_HANDSHAKE_IP: =======================================================
+I (1780) wifi:AP's beacon interval = 102400 us, DTIM period = 1
+I (2730) esp_netif_handlers: sta ip: 172.20.10.2, mask: 255.255.255.240, gw: 172.20.10.1
+I (2730) LAB_HANDSHAKE_IP: =======================================================
+I (2730) LAB_HANDSHAKE_IP: [EVENT FORENSIC]: IP_EVENT_STA_GOT_IP received!
+I (2740) LAB_HANDSHAKE_IP:   [SUCCESS]: Phase 4 (4-Way Handshake) & Phase 5 (DHCP IP) COMPLETED!
+I (2750) LAB_HANDSHAKE_IP:   -> Allocated IP Address : 172.20.10.2
+I (2760) LAB_HANDSHAKE_IP:   -> Subnet Mask          : 255.255.255.240
+I (2770) LAB_HANDSHAKE_IP:   -> Default Gateway      : 172.20.10.1
+I (2770) LAB_HANDSHAKE_IP: =======================================================
+I (2780) LAB_HANDSHAKE_IP: [RESULT]: TEST PASSED - 4-Way Handshake & DHCP IP Assignment Successful!
+I (4790) LAB_HANDSHAKE_IP:
+
+I (4790) LAB_HANDSHAKE_IP: ------------------------------------------------------------------
+I (4790) LAB_HANDSHAKE_IP: >>> Experiment 5.4.2: Handshake Test - Incorrect Password
+I (4790) LAB_HANDSHAKE_IP: ------------------------------------------------------------------
+I (4800) LAB_HANDSHAKE_IP:   Target SSID    : "PhuwishP"
+I (4810) LAB_HANDSHAKE_IP:   Target Password: "WRONG_PASSWORD_1234"
+I (4820) LAB_HANDSHAKE_IP: [FORENSIC]: Call esp_wifi_stop()
+I (4830) wifi:state: run -> init (0)
+I (4840) wifi:pm stop, total sleep time: 1935637 us / 3118063 us
+
+I (4840) wifi:new:<6,0>, old:<6,0>, ap:<255,255>, sta:<6,0>, prof:1
+E (4840) wifi:NAN WiFi stop
+W (4840) LAB_HANDSHAKE_IP: =======================================================
+W (4850) LAB_HANDSHAKE_IP: [EVENT FORENSIC]: WIFI_EVENT_STA_DISCONNECTED received!
+W (4860) LAB_HANDSHAKE_IP:   -> Target SSID          : PhuwishP
+W (4860) LAB_HANDSHAKE_IP:   -> Reason Code (Decimal): 8
+W (4870) LAB_HANDSHAKE_IP:   -> Reason Code (Hex)    : 0x08
+W (4880) LAB_HANDSHAKE_IP:   -> Reason Diagnosis     : OTHER_DISCONNECT_REASON
+W (4890) LAB_HANDSHAKE_IP: =======================================================
+I (4890) LAB_HANDSHAKE_IP: [EVENT FORENSIC]: WIFI_EVENT ID 3 received
+I (4900) wifi:flush txq
+I (4900) wifi:stop sw txq
+I (4900) wifi:lmac stop hw txq
+I (4910) LAB_HANDSHAKE_IP: [FORENSIC]: Call esp_wifi_set_config(WIFI_IF_STA, &wifi_config)
+I (4940) LAB_HANDSHAKE_IP: [FORENSIC]: esp_wifi_set_config() returned ESP_OK (0x0)
+I (4940) LAB_HANDSHAKE_IP: [FORENSIC]: Call esp_wifi_start()
+I (4950) wifi:mode : sta (84:1f:e8:20:55:24)
+I (4950) wifi:enable tsf
+I (4960) LAB_HANDSHAKE_IP: [EVENT FORENSIC]: WIFI_EVENT ID 43 received
+I (4960) LAB_HANDSHAKE_IP: [FORENSIC]: esp_wifi_start() returned ESP_OK (0x0)
+I (4960) LAB_HANDSHAKE_IP: [EVENT FORENSIC]: WIFI_EVENT_STA_START received
+I (4980) LAB_HANDSHAKE_IP: [FORENSIC]: Call esp_wifi_connect()
+I (4990) LAB_HANDSHAKE_IP: [FORENSIC]: esp_wifi_connect() returned ESP_OK (0x0)
+W (5250) LAB_HANDSHAKE_IP: [RESULT]: TEST FAILED - Disconnected during Handshake or Auth.
+I (5250) LAB_HANDSHAKE_IP: ==================================================================
+I (5260) wifi:new:<6,0>, old:<1,0>, ap:<255,255>, sta:<6,0>, prof:1
+I (5260) wifi:state: init -> auth (b0)
+I (5270) LAB_HANDSHAKE_IP: [EVENT FORENSIC]: WIFI_EVENT ID 43 received
+I (5270) LAB_HANDSHAKE_IP:   [Phase 4 & Phase 5 Completed: Wi-Fi Handshake & IP Lab Finished]
+I (5280) LAB_HANDSHAKE_IP: ==================================================================
+I (5280) wifi:state: auth -> assoc (0)
+I (5300) main_task: Returned from app_main()
+I (5320) wifi:state: assoc -> run (10)
+I (5810) wifi:state: run -> init (2c0)
+I (5820) wifi:new:<6,0>, old:<6,0>, ap:<255,255>, sta:<6,0>, prof:1
+W (5820) LAB_HANDSHAKE_IP: =======================================================
+W (5820) LAB_HANDSHAKE_IP: [EVENT FORENSIC]: WIFI_EVENT_STA_DISCONNECTED received!
+W (5830) LAB_HANDSHAKE_IP:   -> Target SSID          : PhuwishP
+W (5840) LAB_HANDSHAKE_IP:   -> Reason Code (Decimal): 2
+W (5840) LAB_HANDSHAKE_IP:   -> Reason Code (Hex)    : 0x02
+W (5850) LAB_HANDSHAKE_IP:   -> Reason Diagnosis     : WIFI_REASON_AUTH_EXPIRE (2)
+W (5860) LAB_HANDSHAKE_IP: =======================================================
+```
