@@ -97,9 +97,14 @@ static void perform_wifi_scan(wifi_scan_config_t *scan_config,
              esp_err_to_name(err_ap_rec), err_ap_rec, number);
     ESP_ERROR_CHECK(err_ap_rec);
 
-    // Save first found SSID for targeted scan test
-    if (found_first_ssid != NULL && number > 0) {
-      snprintf(found_first_ssid, max_ssid_len, "%s", (char *)ap_info[0].ssid);
+    // Save first non-empty found SSID for targeted scan test
+    if (found_first_ssid != NULL && number > 0 && strlen(found_first_ssid) == 0) {
+      for (int i = 0; i < number; i++) {
+        if (strlen((char *)ap_info[i].ssid) > 0) {
+          snprintf(found_first_ssid, max_ssid_len, "%s", (char *)ap_info[i].ssid);
+          break;
+        }
+      }
     }
 
     printf("\n-----------------------------------------------------------------"
